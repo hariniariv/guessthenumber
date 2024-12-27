@@ -1,49 +1,20 @@
-<html>
-    <body bgcolor="powderblue" style="margin-top: 17%;">
-        <center>
-            <h1 style="color: darkblue;">GUESS THE NUMBER</h1>
-            <input id="guessnumber" type="number" placeholder="Enter a number" style="width: 300px; height: 40px; font-size: 18px; border: 2px solid darkblue; border-radius: 10px; padding: 5px;">
-            <button onclick="check()" style="width: 150px; height: 50px; font-size: 18px; color: white; background-color: darkblue; border: none; border-radius: 10px; margin-top: 20px; cursor: pointer;">CHECK</button>
-            <h3 id="result" style="color: darkblue;">YOU ARE WRONG/RIGHT</h3>
-            <h3 id="score" style="color: darkblue;">Score: 10</h3>
-        </center>   
-        <script>
-            var guessnumber = document.getElementById("guessnumber");
-            var result = document.getElementById("result");
-            var score = document.getElementById("score");
-            var randomNumber = Math.floor(Math.random() * 10) + 1;
-            var totalScore = 10;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body bgcolor="powderblue" style="margin-top: 05%;">
+    <center>
+        <h1 style="color: darkblue;">GUESS THE NUMBER</h1>
+        <input id="guessnumber" type="number" placeholder="Enter a number" style="width: 300px; height: 40px; font-size: 18px; border: 2px solid darkblue; border-radius: 10px; padding: 5px;">
+        <button onclick="check()" style="width: 150px; height: 50px; font-size: 18px; color: white; background-color: darkblue; border: none; border-radius: 10px; margin-top: 20px; cursor: pointer;">CHECK</button>
+        <h3 id="result" style="color: darkblue;">YOU ARE WRONG/RIGHT</h3>
+        <h3 id="score" style="color: darkblue;">Score: 10</h3>
+    </center>   
 
-            function check() {
-                var enteredNumber = parseInt(guessnumber.value);
-
-                if (isNaN(enteredNumber)) {
-                    result.textContent = "Please enter a valid number!";
-                    result.style.color = "darkblue";
-                    return;
-                }
-
-                if (totalScore > 0) {
-                    if (randomNumber === enteredNumber) {
-                        result.textContent = "RIGHT! You guessed it!";
-                        result.style.color = "darkblue";
-                        alert("YOU WON!");
-                    } else {
-                        totalScore -= 1;
-                        score.textContent = "Score: " + totalScore;
-                        result.textContent = "WRONG! Try again.";
-                        result.style.color = "darkblue";
-                    }
-
-                    if (totalScore === 0) {
-                        result.textContent = "GAME OVER! The correct number was " + randomNumber;
-                        result.style.color = "darkblue";
-                    }
-                } else {
-                    result.textContent = "GAME OVER! Please refresh to play again.";
-                    result.style.color = "darkblue";
-                }
-            }
-        </script>
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>
